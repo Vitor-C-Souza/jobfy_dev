@@ -11,6 +11,9 @@ fun JobDto.toDomain(): Job {
         category = this.category,
         jobType = this.jobType,
         url = this.url,
-        logoUrl = this.companyLogo
+        logoUrl = this.companyLogo,
+        location = this.location,
+        salary = this.salary,
+        tags = this.tags
     )
 }

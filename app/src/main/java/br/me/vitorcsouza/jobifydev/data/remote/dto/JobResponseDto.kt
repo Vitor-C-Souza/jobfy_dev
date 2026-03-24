@@ -23,5 +23,8 @@ data class JobDto(
     @SerializedName("publication_date")
     val publicationDate: String,
     val salary: String?,
-    val description: String
-)
+    val description: String,
+    val tags: List<String>,
+    val location: String
+) {
+}
