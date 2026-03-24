@@ -1,4 +1,4 @@
-package br.me.vitorcsouza.jobifydev.ui.splash
+package br.me.vitorcsouza.jobifydev.ui.presentation.splash
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
@@ -23,8 +23,7 @@ import br.me.vitorcsouza.jobifydev.R
 @Composable
 fun SplashScreen() {
     val infiniteTransition = rememberInfiniteTransition(label = "pulse")
-    
-    // Tailwind-like pulse effect (opacity animation)
+
     val pulseAlpha by infiniteTransition.animateFloat(
         initialValue = 1f,
         targetValue = 0.5f,
