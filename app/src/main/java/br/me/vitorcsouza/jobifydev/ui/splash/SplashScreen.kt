@@ -1,4 +1,4 @@
-package br.me.vitorcsouza.jobifydev.ui
+package br.me.vitorcsouza.jobifydev.ui.splash
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
