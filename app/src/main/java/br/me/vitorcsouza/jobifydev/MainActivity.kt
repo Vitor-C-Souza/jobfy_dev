@@ -6,8 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.*
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import br.me.vitorcsouza.jobifydev.ui.main.MainScreen
-import br.me.vitorcsouza.jobifydev.ui.splash.SplashScreen
+import br.me.vitorcsouza.jobifydev.ui.presentation.main.MainScreen
+import br.me.vitorcsouza.jobifydev.ui.presentation.splash.SplashScreen
 import br.me.vitorcsouza.jobifydev.ui.theme.JobifyDevTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
