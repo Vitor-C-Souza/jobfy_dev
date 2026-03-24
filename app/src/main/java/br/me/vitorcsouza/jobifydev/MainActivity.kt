@@ -9,8 +9,9 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import br.me.vitorcsouza.jobifydev.ui.main.MainScreen
 import br.me.vitorcsouza.jobifydev.ui.splash.SplashScreen
 import br.me.vitorcsouza.jobifydev.ui.theme.JobifyDevTheme
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
-
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
