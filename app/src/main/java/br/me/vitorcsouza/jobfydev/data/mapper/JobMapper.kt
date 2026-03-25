@@ -14,6 +14,7 @@ fun JobDto.toDomain(): Job {
         logoUrl = this.companyLogo,
         location = this.location,
         salary = this.salary,
-        tags = this.tags
+        tags = this.tags,
+        publicationDate = this.publicationDate
     )
 }
