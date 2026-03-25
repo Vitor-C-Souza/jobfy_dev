@@ -20,11 +20,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import br.me.vitorcsouza.jobfydev.domain.model.Job
-import br.me.vitorcsouza.jobfydev.ui.components.FilterChips
-import br.me.vitorcsouza.jobfydev.ui.components.HomeHeader
-import br.me.vitorcsouza.jobfydev.ui.components.JobCard
-import br.me.vitorcsouza.jobfydev.ui.components.SearchBar
-import br.me.vitorcsouza.jobfydev.ui.components.SectionHeader
+import br.me.vitorcsouza.jobfydev.ui.components.home.FilterChips
+import br.me.vitorcsouza.jobfydev.ui.components.home.HomeHeader
+import br.me.vitorcsouza.jobfydev.ui.components.home.JobCard
+import br.me.vitorcsouza.jobfydev.ui.components.home.SearchBar
+import br.me.vitorcsouza.jobfydev.ui.components.home.SectionHeader
 import br.me.vitorcsouza.jobfydev.ui.theme.JobfyDevTheme
 
 @Composable

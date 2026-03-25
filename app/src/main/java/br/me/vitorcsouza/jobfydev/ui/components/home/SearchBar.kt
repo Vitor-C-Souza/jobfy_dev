@@ -1,4 +1,4 @@
-package br.me.vitorcsouza.jobfydev.ui.components
+package br.me.vitorcsouza.jobfydev.ui.components.home
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
