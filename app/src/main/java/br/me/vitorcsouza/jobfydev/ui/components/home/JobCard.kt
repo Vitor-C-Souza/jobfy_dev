@@ -12,7 +12,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -133,7 +133,7 @@ fun JobCard(
                 }
 
                 Icon(
-                    imageVector = Icons.Filled.FavoriteBorder,
+                    imageVector = Icons.Outlined.BookmarkBorder,
                     contentDescription = null,
                     tint = Color.Gray,
                     modifier = Modifier.size(24.dp)

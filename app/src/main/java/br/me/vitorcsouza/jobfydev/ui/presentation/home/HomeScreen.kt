@@ -22,6 +22,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import br.me.vitorcsouza.jobfydev.domain.model.Job
 import br.me.vitorcsouza.jobfydev.ui.components.home.FilterChips
 import br.me.vitorcsouza.jobfydev.ui.components.home.HomeHeader
+import br.me.vitorcsouza.jobfydev.ui.components.home.HomeLoadingScreen
 import br.me.vitorcsouza.jobfydev.ui.components.home.JobCard
 import br.me.vitorcsouza.jobfydev.ui.components.home.SearchBar
 import br.me.vitorcsouza.jobfydev.ui.components.home.SectionHeader
@@ -57,9 +58,7 @@ fun HomeContent(
     ) { paddingValues ->
         Box(modifier = Modifier.padding(paddingValues)) {
             if (state.isLoading) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
-                }
+                HomeLoadingScreen()
             }
 
             LazyColumn(
