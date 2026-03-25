@@ -11,7 +11,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.me.vitorcsouza.jobfydev.domain.model.Job
@@ -25,7 +24,7 @@ fun TechStackSection(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 16.dp, horizontal = 8.dp)
+            .padding(vertical = 16.dp, horizontal = 16.dp)
     ) {
         Text(
             text = "Tech Stack",

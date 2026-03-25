@@ -24,7 +24,7 @@ fun SalaryBanner(
     modifier: Modifier = Modifier
 ) {
     val isSalaryAvailable = !job.salary.isNullOrBlank()
-    val salaryText = if (isSalaryAvailable) job.salary!! else "Salary Negotiable"
+    val salaryText = if (isSalaryAvailable) job.salary else "Salary Negotiable"
 
     val periodText = if (isSalaryAvailable) {
         if (salaryText.contains("hour", ignoreCase = true)) "per hour" else "per year"
@@ -42,7 +42,8 @@ fun SalaryBanner(
     )
     Surface(
         modifier = Modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .padding(16.dp),
         shape = RoundedCornerShape(16.dp),
         shadowElevation = 4.dp,
         color = Color.Transparent
