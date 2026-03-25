@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.Tune
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -73,9 +74,9 @@ fun HomeHeader(
                 .background(Color(0xFFF1F4F9))
         ) {
             Icon(
-                imageVector = Icons.Default.Settings,
+                imageVector = Icons.Outlined.Tune,
                 contentDescription = "Settings",
-                tint = Color.Gray
+                tint = MaterialTheme.colorScheme.primary
             )
         }
     }
