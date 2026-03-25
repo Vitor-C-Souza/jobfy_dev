@@ -18,6 +18,11 @@ data class Job(
     val tags: List<String>,
     val publicationDate: String
 ) {
+    fun getFormattedJobType(): String {
+        return jobType.split("_")
+            .joinToString(" ") { it.replaceFirstChar { char -> char.uppercase() } }
+    }
+
     fun getPublishedDaysAgo(): String {
         return try {
             val formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME

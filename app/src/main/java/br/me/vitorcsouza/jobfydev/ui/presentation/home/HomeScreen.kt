@@ -7,13 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,13 +26,17 @@ import br.me.vitorcsouza.jobfydev.ui.components.home.SectionHeader
 import br.me.vitorcsouza.jobfydev.ui.theme.JobfyDevTheme
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
+fun HomeScreen(
+    viewModel: HomeViewModel = hiltViewModel(),
+    onJobClick: (Long) -> Unit
+) {
     val state by viewModel.state.collectAsState()
 
     HomeContent(
         state = state,
         onSearchQueryChange = viewModel::onSearchQueryChange,
-        onFilterSelected = viewModel::onFilterSelected
+        onFilterSelected = viewModel::onFilterSelected,
+        onJobClick = onJobClick
     )
 }
 
@@ -43,7 +44,8 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
 fun HomeContent(
     state: HomeStates,
     onSearchQueryChange: (String) -> Unit,
-    onFilterSelected: (String) -> Unit
+    onFilterSelected: (String) -> Unit,
+    onJobClick: (Long) -> Unit
 ) {
     val filteredJobs = state.jobs.filter { job ->
         val matchesFilter = state.selectedFilter == "All" || job.category == state.selectedFilter
@@ -90,7 +92,10 @@ fun HomeContent(
                 }
 
                 items(filteredJobs) { job ->
-                    JobCard(job = job)
+                    JobCard(
+                        job = job,
+                        onClick = onJobClick
+                    )
                 }
             }
         }
@@ -134,7 +139,8 @@ private fun HomeScreenPreview() {
                 categories = listOf("All", "Software Development", "Design")
             ),
             onSearchQueryChange = {},
-            onFilterSelected = {}
+            onFilterSelected = {},
+            onJobClick = {}
         )
     }
 }

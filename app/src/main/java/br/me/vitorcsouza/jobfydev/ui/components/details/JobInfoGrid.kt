@@ -35,7 +35,7 @@ fun JobInfoGrid(
         InfoCard(
             icon = Icons.Outlined.Work,
             label = "Type",
-            value = job.jobType.replaceFirstChar { it.uppercase() }.replace("_", "-"),
+            value = job.getFormattedJobType(),
         )
         InfoCard(
             icon = Icons.Outlined.AccessTime,

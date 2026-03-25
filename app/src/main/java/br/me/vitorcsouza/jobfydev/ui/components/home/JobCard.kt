@@ -1,6 +1,7 @@
 package br.me.vitorcsouza.jobfydev.ui.components.home
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -36,12 +37,14 @@ import coil.compose.AsyncImage
 @Composable
 fun JobCard(
     job: Job,
+    onClick: (Long) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 8.dp)
+            .clickable { onClick(job.id) },
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
@@ -167,6 +170,7 @@ private fun JobCardPreview() {
 
         JobCard(
             job = mockJob,
+            onClick = {}
         )
     }
 }
