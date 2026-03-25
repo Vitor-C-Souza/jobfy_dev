@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.JobifyDev" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.JobfyDev" parent="android:Theme.Material.Light.NoActionBar" />
 
     <!-- Splash Screen Theme -->
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/brand_background</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
-        <item name="postSplashScreenTheme">@style/Theme.JobifyDev</item>
+        <item name="postSplashScreenTheme">@style/Theme.JobfyDev</item>
     </style>
 </resources>

@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "br.me.vitorcsouza.jobifydev"
+    namespace = "br.me.vitorcsouza.jobfydev"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "br.me.vitorcsouza.jobifydev"
+        applicationId = "br.me.vitorcsouza.jobfydev"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
