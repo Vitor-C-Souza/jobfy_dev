@@ -115,7 +115,8 @@ private fun HomeScreenPreview() {
                         logoUrl = null,
                         location = "Remote",
                         salary = "$150k",
-                        tags = listOf("Kotlin", "Compose")
+                        tags = listOf("Kotlin", "Compose"),
+                        publicationDate = "2023-09-01T00:00:00+00:00"
                     ),
                     Job(
                         id = 2,
@@ -127,7 +128,8 @@ private fun HomeScreenPreview() {
                         logoUrl = null,
                         location = "San Francisco",
                         salary = "$130k",
-                        tags = listOf("Figma", "UI/UX")
+                        tags = listOf("Figma", "UI/UX"),
+                        publicationDate = "2023-09-01T00:00:00+00:00"
                     )
                 ),
                 categories = listOf("All", "Software Development", "Design")

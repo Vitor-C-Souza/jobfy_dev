@@ -161,7 +161,8 @@ private fun JobCardPreview() {
             logoUrl = null,
             location = "Remote - US",
             salary = "$120k - $160k",
-            tags = listOf("React", "TypeScript", "Node.js")
+            tags = listOf("React", "TypeScript", "Node.js"),
+            publicationDate = "2023-09-01T00:00:00+00:00"
         )
 
         JobCard(
