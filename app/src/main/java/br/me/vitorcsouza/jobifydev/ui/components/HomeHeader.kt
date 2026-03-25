@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import br.me.vitorcsouza.jobifydev.R
 
 @Composable
-fun HomerHeader(
+fun HomeHeader(
     onClick: () -> Unit = {}
 ) {
     Row(
@@ -72,5 +72,5 @@ fun HomerHeader(
 @Preview
 @Composable
 private fun HomeHeaderPreview() {
-    HomerHeader()
+    HomeHeader()
 }
