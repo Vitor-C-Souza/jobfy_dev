@@ -13,7 +13,7 @@ fun JobDto.toDomain(): Job {
         url = this.url,
         logoUrl = this.companyLogo,
         location = this.location,
-        salary = this.salary,
+        salary = if (this.salary.isNullOrBlank()) null else this.salary,
         tags = this.tags,
         publicationDate = this.publicationDate
     )
