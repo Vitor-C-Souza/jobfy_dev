@@ -11,6 +11,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -76,7 +77,7 @@ fun DetailTopBar(
                     .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.1f))
             ) {
                 Icon(
-                    imageVector = Icons.Default.FavoriteBorder,
+                    imageVector = Icons.Outlined.BookmarkBorder,
                     contentDescription = "Bookmark",
                     tint = MaterialTheme.colorScheme.primary
                 )
