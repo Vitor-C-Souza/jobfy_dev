@@ -16,8 +16,11 @@ coil = "2.7.0"
 hiltNavigationCompose = "1.2.0"
 ksp = "2.0.21-1.0.26"
 coreSplashScreen = "1.0.1"
+materialIconsExtended = "1.7.5"
+desugar_jdk_libs = "2.1.5"
 
 [libraries]
+androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "materialIconsExtended" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "coreSplashScreen" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -51,6 +54,7 @@ androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navig
 
 # Coil
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+desugar-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
