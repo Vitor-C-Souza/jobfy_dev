@@ -6,9 +6,8 @@ Jobify Dev é um aplicativo Android moderno para busca de vagas remotas na área
 
 Aqui estão as telas do projeto baseadas no design original:
 
-![Showcase 1](https://storage.googleapis.com/static.us.lumalabs.ai/gen-1/ae304443-41c6-43f1-b960-934c9586111f/9a54e99b-d731-4828-86d7-93510e40049e.png)
-
-![Showcase 2](https://storage.googleapis.com/static.us.lumalabs.ai/gen-1/ae304443-41c6-43f1-b960-934c9586111f/60e14a22-386d-4950-891d-b586e927f8c0.png)
+![Showcase 1](screenshots/showcase1.png)
+![Showcase 2](screenshots/showcase2.png)
 
 ## 🚀 Tecnologias e Bibliotecas
 
