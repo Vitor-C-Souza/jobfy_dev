@@ -5,5 +5,6 @@ import br.me.vitorcsouza.jobfydev.domain.model.Job
 data class JobDetailsStates(
     val isLoading: Boolean = false,
     val job: Job? = null,
+    val isFavorite: Boolean = false,
     val error: String? = null
 )

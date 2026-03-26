@@ -1,5 +1,6 @@
 package br.me.vitorcsouza.jobfydev.di
 
+import br.me.vitorcsouza.jobfydev.data.local.FavoriteJobDao
 import br.me.vitorcsouza.jobfydev.data.remote.RemotiveApi
 import br.me.vitorcsouza.jobfydev.data.repository.JobRepositoryImpl
 import br.me.vitorcsouza.jobfydev.domain.repository.JobRepository
@@ -40,7 +41,10 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideJobRepository(api: RemotiveApi): JobRepository {
-        return JobRepositoryImpl(api)
+    fun provideJobRepository(
+        api: RemotiveApi,
+        favoriteJobDao: FavoriteJobDao
+    ): JobRepository {
+        return JobRepositoryImpl(api, favoriteJobDao)
     }
 }

@@ -13,11 +13,13 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -37,6 +39,8 @@ import coil.compose.AsyncImage
 @Composable
 fun JobCard(
     job: Job,
+    isFavorite: Boolean,
+    onFavoriteClick: () -> Unit,
     onClick: (Long) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -135,12 +139,17 @@ fun JobCard(
                     }
                 }
 
-                Icon(
-                    imageVector = Icons.Outlined.BookmarkBorder,
-                    contentDescription = null,
-                    tint = Color.Gray,
+                IconButton(
+                    onClick = onFavoriteClick,
                     modifier = Modifier.size(24.dp)
-                )
+                ) {
+                    Icon(
+                        imageVector = if (isFavorite) Icons.Filled.Bookmark else Icons.Outlined.BookmarkBorder,
+                        contentDescription = if (isFavorite) "Remove from favorites" else "Add to favorites",
+                        tint = if (isFavorite) MaterialTheme.colorScheme.primary else Color.Gray,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
 
             }
 
@@ -170,6 +179,8 @@ private fun JobCardPreview() {
 
         JobCard(
             job = mockJob,
+            isFavorite = true,
+            onFavoriteClick = {},
             onClick = {}
         )
     }

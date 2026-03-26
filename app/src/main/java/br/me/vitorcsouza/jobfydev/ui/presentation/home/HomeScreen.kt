@@ -28,7 +28,8 @@ import br.me.vitorcsouza.jobfydev.ui.theme.JobfyDevTheme
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
-    onJobClick: (Long) -> Unit
+    onJobClick: (Long) -> Unit,
+    onBookmarkClick: () -> Unit
 ) {
     val state by viewModel.state.collectAsState()
 
@@ -36,7 +37,9 @@ fun HomeScreen(
         state = state,
         onSearchQueryChange = viewModel::onSearchQueryChange,
         onFilterSelected = viewModel::onFilterSelected,
-        onJobClick = onJobClick
+        onToggleFavorite = viewModel::onToggleFavorite,
+        onJobClick = onJobClick,
+        onBookmarkClick = onBookmarkClick
     )
 }
 
@@ -45,7 +48,9 @@ fun HomeContent(
     state: HomeStates,
     onSearchQueryChange: (String) -> Unit,
     onFilterSelected: (String) -> Unit,
-    onJobClick: (Long) -> Unit
+    onToggleFavorite: (Job) -> Unit,
+    onJobClick: (Long) -> Unit,
+    onBookmarkClick: () -> Unit
 ) {
     val filteredJobs = state.jobs.filter { job ->
         val matchesFilter = state.selectedFilter == "All" || job.category == state.selectedFilter
@@ -69,7 +74,7 @@ fun HomeContent(
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 item {
-                    HomeHeader()
+                    HomeHeader(onClick = onBookmarkClick)
                 }
 
                 item {
@@ -94,6 +99,8 @@ fun HomeContent(
                 items(filteredJobs) { job ->
                     JobCard(
                         job = job,
+                        isFavorite = state.favoriteJobIds.contains(job.id),
+                        onFavoriteClick = { onToggleFavorite(job) },
                         onClick = onJobClick
                     )
                 }
@@ -140,7 +147,9 @@ private fun HomeScreenPreview() {
             ),
             onSearchQueryChange = {},
             onFilterSelected = {},
-            onJobClick = {}
+            onToggleFavorite = {},
+            onJobClick = {},
+            onBookmarkClick = {}
         )
     }
 }

@@ -2,9 +2,10 @@ package br.me.vitorcsouza.jobfydev.ui.components.details
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -16,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import br.me.vitorcsouza.jobfydev.domain.model.Job
 import br.me.vitorcsouza.jobfydev.ui.theme.JobfyDevTheme
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun TechStackSection(
     job: Job,
@@ -31,13 +33,16 @@ fun TechStackSection(
             style = MaterialTheme.typography.titleSmall,
             color = MaterialTheme.colorScheme.primary,
         )
-        LazyRow(
-            modifier = Modifier.padding(top = 8.dp),
-            userScrollEnabled = false,
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        FlowRow(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp), // Espaço entre as linhas
+            maxItemsInEachRow = Int.MAX_VALUE
         ) {
-            items(job.tags.size) { index ->
-                TagCard(tag = job.tags[index])
+            job.tags.forEach { tag ->
+                TagCard(tag = tag)
             }
         }
     }
@@ -75,7 +80,7 @@ private fun TechStackSectionPreview() {
         logoUrl = null,
         location = "Remote - US",
         salary = "",
-        tags = listOf("React", "TypeScript", "Node.js"),
+        tags = listOf("React", "TypeScript", "Node.js", "TypeScript", "Node.js", "TypeScript", "Node.js"),
         publicationDate = "2023-09-01T00:00:00+00:00"
     )
     JobfyDevTheme {
@@ -85,7 +90,7 @@ private fun TechStackSectionPreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun tagCardPreview() {
+private fun TagCardPreview() {
     JobfyDevTheme {
         TagCard(tag = "React")
     }

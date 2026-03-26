@@ -6,6 +6,7 @@ import br.me.vitorcsouza.jobfydev.domain.model.Job
 data class HomeStates(
     val isLoading: Boolean = false,
     val jobs: List<Job> = emptyList(),
+    val favoriteJobIds: Set<Long> = emptySet(),
     val categories: List<String> = listOf("All", "Remote", "Full-time", "Design"),
     val searchQuery: String = "",
     val selectedFilter: String = "All",

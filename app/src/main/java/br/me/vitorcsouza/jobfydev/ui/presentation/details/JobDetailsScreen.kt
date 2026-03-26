@@ -31,35 +31,43 @@ import br.me.vitorcsouza.jobfydev.ui.theme.JobfyDevTheme
 @Composable
 fun JobDetailsScreen(
     viewModel: JobDetailsViewModel = hiltViewModel(),
-    onBackClick: () -> Unit,
-    onShareClick: () -> Unit,
-    onBookmarkClick: () -> Unit
+    onBackClick: () -> Unit
 ) {
     val state by viewModel.state.collectAsState()
 
     JobDetailsContent(
         job = state.job,
+        isFavorite = state.isFavorite,
         onBackClick = onBackClick,
-        onShareClick = onShareClick,
-        onBookmarkClick = onBookmarkClick
+        onBookmarkClick = viewModel::onToggleFavorite
     )
 }
 
 @Composable
 fun JobDetailsContent(
     job: Job?,
+    isFavorite: Boolean,
     onBackClick: () -> Unit,
-    onShareClick: () -> Unit,
     onBookmarkClick: () -> Unit
 ) {
     if (job == null) return
 
     val context = LocalContext.current
+    
+    val handleShare = {
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TEXT, "Confira esta vaga: ${job.title} na ${job.companyName}\n${job.url}")
+        }
+        context.startActivity(Intent.createChooser(intent, "Compartilhar Vaga"))
+    }
+
     Scaffold(
         topBar = {
             DetailTopBar(
+                isFavorite = isFavorite,
                 onBackClick = onBackClick,
-                onShareClick = onShareClick,
+                onShareClick = handleShare,
                 onBookmarkClick = onBookmarkClick
             )
         },
@@ -120,8 +128,8 @@ private fun JobDetailsScreenPreview() {
     JobfyDevTheme {
         JobDetailsContent(
             job = mockJob,
+            isFavorite = true,
             onBackClick = {},
-            onShareClick = {},
             onBookmarkClick = {}
         )
     }

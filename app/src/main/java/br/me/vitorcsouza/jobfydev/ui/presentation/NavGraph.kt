@@ -8,9 +8,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import br.me.vitorcsouza.jobfydev.ui.presentation.details.JobDetailsScreen
 import br.me.vitorcsouza.jobfydev.ui.presentation.home.HomeScreen
+import br.me.vitorcsouza.jobfydev.ui.presentation.saved.SavedScreen
 
 sealed class Screen(val route: String) {
     object Home : Screen("home")
+    object Saved : Screen("saved")
     object Details : Screen("details/{jobId}") {
         fun createRoute(jobId: Long) = "details/$jobId"
     }
@@ -24,6 +26,19 @@ fun NavGraph(navController: NavHostController) {
     ) {
         composable(route = Screen.Home.route) {
             HomeScreen(
+                onJobClick = { jobId ->
+                    navController.navigate(Screen.Details.createRoute(jobId))
+                },
+                onBookmarkClick = {
+                    navController.navigate(Screen.Saved.route)
+                }
+            )
+        }
+        composable(route = Screen.Saved.route) {
+            SavedScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                },
                 onJobClick = { jobId ->
                     navController.navigate(Screen.Details.createRoute(jobId))
                 }
@@ -40,9 +55,7 @@ fun NavGraph(navController: NavHostController) {
             JobDetailsScreen(
                 onBackClick = {
                     navController.popBackStack()
-                },
-                onShareClick = { /* Implement share */ },
-                onBookmarkClick = { /* Implement bookmark */ }
+                }
             )
         }
     }
